@@ -1,0 +1,107 @@
+body{
+    margin: 0;
+    padding: 0;
+    overflow:hidden;
+}
+
+.text-hidden{
+  text{
+  visibility: hidden
+  }
+  .description{
+    visibility: visible
+  }
+}
+
+#editing{
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 10%;
+
+ p{
+  background-color: red;
+}
+}
+p{
+     text-align: center;
+     overflow: overlay;
+     position: relative;
+}
+
+body{
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.conceptG{
+  .description{
+    fill: grey;
+  }
+}
+
+.conceptG text{
+    pointer-events: none;
+}
+
+marker{
+    fill: #333;
+}
+
+g.conceptG circle{
+    fill: #F6FBFF;
+}
+
+g.conceptG:hover circle{
+    fill: rgb(200, 238, 241);
+}
+g.conceptG:hover rect{
+    fill: rgb(200, 238, 241);
+}
+
+g.selected circle, g.selected rect {
+    fill: rgb(125, 232, 255);
+}
+
+
+g.selected:hover circle{
+    fill: rgb(140, 255, 255);
+}
+
+g.selected image{
+    opacity: 0.5;
+}
+
+g.conceptG:hover image{
+    opacity: 0.7;
+}
+
+path.link {
+    fill: none;
+    stroke: #BEFFFF;
+    opacity: 0.3;
+    stroke-width: 10px;
+    cursor: default;
+}
+
+path.link:hover{
+    stroke: rgb(94, 196, 204);
+}
+
+g.connect-node circle{
+    fill: #BEFFFF;
+}
+
+path.link.hidden{
+    stroke-width: 0;
+}
+
+path.link.selected {
+    stroke: rgb(50, 232, 250);
+}
+
+rect{
+  fill: white;
+}

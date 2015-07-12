@@ -1,0 +1,270 @@
+/* -------------------------------------
+ * Base elements style (h1, h2, p, a, ul..)
+ * ============= IMPORTANT =============
+ * Before writing in this file, look if there is not
+ * already a Bootstrap SCSS variable that does the same job
+ * ------------------------------------- */
+
+ /*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+body{
+  font-family: 'Quicksand', sans-serif;
+  overflow-y: scroll !important;
+}
+
+#empty{
+  height:70px;
+}
+
+p{
+  text-align: left;
+  padding-left: 1em;
+  color: #333;
+}
+
+.badge i{
+  color: white;
+}
+.navbar{
+  margin-bottom: 0;
+  position: absolute;
+  height: 8%;
+  min-height: 70px;
+  width: 100%;
+  z-index: 50000;
+}
+
+.modal-dialog{
+  width:80%;
+  height:80%;
+}
+.modal-content{
+  width:100%;
+  height:100%;
+}
+
+#alert{
+  position: fixed;
+  right: 1%;
+  border: 2px solid #EEEEEE;
+  border-radius: 5px;
+  z-index: 5000000000;
+  margin-top: 11%;
+  background-color: white;
+}
+
+.inline{
+  display: inline-block;
+}
+
+#toolbox{
+  position: fixed;
+  margin-right: 1em;
+  border: 2px solid #EEEEEE;
+  border-radius: 5px;
+  padding: 1em;
+  z-index: 5;
+  background-color: white;
+  top:8%;
+  & .btn{
+    margin-top:0;
+}
+}
+
+#idea-toolbox{
+    position: absolute;
+    width: 5%;
+    bottom: 0;
+    left: 0;
+    margin-bottom: 0.5em;
+    // border: 2px solid #EEEEEE;
+    border-radius: 5px;
+    padding: 1em;
+    z-index: 5;
+    // background-color: rgba(255,255,255,0.6);
+
+  i{
+    color: white;
+    &:hover{
+      color: #ccc;
+    }
+  }
+}
+
+#hidden-file-upload{
+    display: none;
+}
+
+#download-input{
+    margin: 0 0.5em;
+}
+.fa{
+  color: #AFAFAF;
+}
+
+.fa:hover{
+    color:black;
+}
+
+.btn{
+  margin-top: 2%;
+}
+
+svg{
+  position: absolute;
+  width: 100%;
+}
+
+#window{
+  background-image: url('/b1.jpg');
+
+  -webkit-filter: blur(15px);
+  -moz-filter: blur(15px);
+  -o-filter: blur(15px);
+  -ms-filter: blur(15px);
+  filter: blur(15px);
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.6;
+  z-index: -5;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+#instructions{
+  max-height: 70%;
+  max-width: 30%;
+  padding:1em;
+  bottom:0;
+  right:0;
+  position: absolute;
+  border: 2px solid #EEEEEE;
+  border-radius: 5px;
+  z-index: 5;
+  background-color: white;
+  overflow-y: auto;
+  p{
+    text-align: left;
+  }
+  em{
+    font-weight: bold;
+    font-style: normal;
+  }
+  ul{
+    padding:0;
+   list-style-type: none;
+  }
+}
+
+.wiki{
+  z-index:1000;
+  overflow: visible;
+  position: fixed;
+  bottom: 0;
+  height: 0%;
+  background-color: white;
+  border-radius: 5px;
+  overflow: scroll;
+  -moz-user-select: text;
+  -khtml-user-select: text;
+  -webkit-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+.wiki-open{
+  padding: 5%;
+  margin-left: 6%;
+  height: 38%;
+}
+
+.url-open{
+  padding: 1%;
+  margin-left: 6%;
+  height: 38%;
+  width: 94%;
+}
+
+iframe{
+  height: 100%;
+  width: 100%;
+}
+#close-wiki{
+position: absolute;
+  top: 2%;
+  right:1%;
+}
+
+circle{
+  opacity: 1;
+}
+text{
+  text-anchor:middle;
+}
+
+rect{
+  text-anchor:middle;
+}
+
+.text-left text{
+text-anchor: start;
+}
+
+.transparent{
+  opacity: 0;
+}
+.selected text{
+  fill: #6666ff;
+}
+.random{
+  color: #ddd;
+  height: 1em;
+  fill:#ddd;
+  opacity: 0;
+  position:relative;
+}
+.parent_id{
+  fill:green;
+}
+
+.conceptG text{
+  font-size: 1em;
+  line-height: 2em;
+}
+
+form .btn{
+  vertical-align: baseline;
+}
+
+.feed{
+  height: 200px;
+  padding:1%;
+  margin:0.5%;
+  overflow-x: auto;
+}
+
+#zoom{
+  writing-mode: bt-lr; /* IE */
+  -webkit-appearance: slider-vertical; /* WebKit */
+  width: 8px;
+  height: 5em;
+  margin-left:1em;
+}
+#zoom-label{
+  color: white;
+}

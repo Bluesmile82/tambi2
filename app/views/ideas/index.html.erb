@@ -1,0 +1,128 @@
+<% content_for :js do %>
+  <script type="text/javascript">
+    <%= render :partial => "appBundle.js" %>
+  </script>
+<% end %>
+
+<div id="window" data-graph='<%= @graph.id %>' data-permission=<%= @same_user %>>
+</div>
+
+<div id="instructions">
+  <button id="close-instructions" class="close"><span aria-hidden="true">&times;</span></button>
+  <ul>
+    <p><h3>Info</h3></p>
+    <p><em>Create</em> - <span class="badge">Shift</span> + <span class="badge">click</span> in the canvas </p>
+    <p><em>Edit</em> - <span class="badge">Shift</span> + <span class="badge">click</span> in an idea </p>
+    <p><em>Delete idea or link</em> - <span class="badge">Backspace</span> or <span class="badge">Delete</span> </p>
+    <p><em>Relate</em> - <span class="badge">Shift</span> + <span class="badge"> drag </span> to idea </p>
+    <p><em>Get suggestions</em> - <span class="badge">Select idea</span> + <span class="badge">click</span> on a toolbar button </p>
+    <h4>Hotkeys</h4>
+    <p> <span class="badge"> Space </span><em> View info about idea (Wikipedia, full size image, web or youtube video)</em></p>
+    <p> <span class="badge"> s </span> <em> Search in duckduckgo.com</em> </p>
+    <p><span class="badge">  c </span> <em> Add description to idea</em> </p>
+    <p><span class="badge">  f </span> <em> Hide / show the navbar (focus)</em> </p>
+<!--     <p>  + <em>grow idea</em> </p>
+    <p>  - <em>shrink idea</em> </p> -->
+    <p><span class="badge">  i </span> <em> Info</em> </p>
+    <p><span class="badge">  a </span> <em> Toolbox</em> </p>
+
+  </ul>
+</div>
+
+<% if @same_user %>
+  <div id='alert'></div>
+  <div id="toolbox">
+  <button id="close-toolbox" class="close"><span aria-hidden="true">&times;</span></button>
+    <div id="random-button" class="btn btn-default" data-toggle="tooltip" data-placement="down" title="Suggest random concepts">
+      <span class='label label-default'>1</span>
+       Random</div>
+    <div id="related_idol-button" class="btn btn-default" data-toggle="tooltip" data-placement="down" title="Suggest related concepts (hp idol)">
+      <span class='label label-default'>2</span>
+     Related</div>
+    <div id="wiki_category-button" class="btn btn-default" data-toggle="tooltip" data-placement="down" title="Suggest Wikipedia category">
+      <span class='label label-default'>3</span>
+     Wikipedia Category</div>
+    <!-- <div id="flickr_tags-button" class="btn btn-default">Flickr related tags</div> -->
+    <div id="user-button" class="btn btn-default" data-toggle="tooltip" data-placement="down" title="Suggest related ideas from other users">
+      <span class='label label-default'>4</span>
+     User matches</div>
+    <div id="pinterest-button" class="btn btn-default" data-toggle="tooltip" data-placement="down" title="Suggest images from Pinterest">
+      <span class='label label-default'>5</span>
+       Pinterest</div>
+    <div id="youtube-button" class="btn btn-default" data-toggle="tooltip" data-placement="down" title="Suggest videos from youtube">
+      <span class='label label-default'>6</span>
+       Youtube</div>
+    <div id="synonym-button" class="btn btn-default" data-toggle="tooltip" data-placement="down" title="Suggest synonims (wordnik)">
+      <span class='label label-default'>7</span>
+       Synonyms</div>
+    <div id="related-wordnik-button" class="btn btn-default" data-toggle="tooltip" data-placement="down" title="Suggest related from thesaurus (wordnik)">
+      <span class='label label-default'>8</span>
+       Thesaurus</div>
+    <div class="inline" >
+      <label for=delay>Pace</label>
+      <!-- <span id='delay-label'>5 sec</span> -->
+      <input data-toggle="tooltip" data-placement="left" title="Change the pace in which suggestions appear" id="delay" type="range" min="100" value="5000" max="20000">
+    </div>
+    <div class="inline">
+      <label for=duration class="inline">Duration</label>
+      <!-- <span id='duration-label'>10 sec</span> -->
+      <input data-toggle="tooltip" data-placement="left" title="Change the speed in which suggestions appear" id="duration" type="range" name="suggestions-duration" value="10000" min="2000" max="22000">
+    </div>
+    <!-- <div class="inline">
+      <label for=in>Ease-in</label>
+      <span id='in-label'>1 sec</span>
+      <input id="in" type="range" min="100" value="1000" max="5000">
+    </div> -->
+  </div>
+<% end %>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Other canvas</h4>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wiki"><div></div><i class="fa fa-times fa-3x" id="close-wiki"></i></div>
+
+  <input type="file" id="hidden-file-upload"></input>
+
+  <div id="idea-toolbox">
+    <!-- <div>
+      <i class="fa fa-link fa-3x" id="open-canvas" data-toggle="modal" data-target="#myModal" ></i>
+    </div> -->
+    <div class="">
+      <label id='zoom-label' for=zoom><h5>Zoom</h5></label>
+      <input id="zoom" type="range" orient="vertical" min="0.1" value= graph.consts.zoom max="3" step='0.1'>
+    </div>
+    <div data-toggle="tooltip" data-placement="left" title="View info">
+      <i class="fa fa-eye fa-3x" id="open-url"></i>
+    </div>
+    <div data-toggle="tooltip" data-placement="left" title="Search on duckduckgo">
+      <i class="fa fa-search fa-3x" id="search"></i>
+    </div>
+    <!-- <div>
+      <i class="fa fa-play-circle fa-3x" id="play"></i>
+    </div> -->
+    <% if @same_user %>
+<!--       <div>
+        <i class="fa fa-plus-circle fa-3x" id="idea-plus"></i>
+      </div>
+      <div>
+        <i class="fa fa-minus-circle fa-3x" id="idea-minus"></i>
+      </div> -->
+    <div data-toggle="tooltip" data-placement="left" title="Comment">
+      <i class="fa fa-comment fa-3x" id="add-text"></i>
+    </div>
+    <% end %>
+    <div data-toggle="tooltip" data-placement="left" title="Hide/show navbar">
+      <i class="fa fa-compress fa-3x" id="focus"></i>
+    </div>
+    <div data-toggle="tooltip" data-placement="left" title="Center to origin">
+      <i class="fa fa-dot-circle-o fa-3x" id="center-tambi"></i>
+    </div>
+  </div>
