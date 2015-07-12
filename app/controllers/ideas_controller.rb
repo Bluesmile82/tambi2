@@ -1,12 +1,20 @@
 class IdeasController < ApplicationController
   before_action :set_idea, only: [:show, :update, :destroy]
-  before_action :set_graph, only: [:index, :create, :update, :destroy]
+  before_action :set_graph, only: [:index, :create, :update, :destroy, :react]
   before_action :set_concept, only: [:create, :update]
 
   def index
     @same_user = @graph.user == current_user || @graph.public
     @ideas = @graph.ideas
     @links = @ideas.map{|idea| idea.links }.flatten
+  end
+
+  def react
+    @same_user = @graph.user == current_user || @graph.public
+    @ideas = @graph.ideas
+    p @ideas
+    @links = @ideas.map{|idea| idea.links }.flatten
+    p @links
   end
 
   def create

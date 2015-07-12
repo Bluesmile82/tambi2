@@ -10,11 +10,15 @@ module.exports = {
   module: {
     loaders: [
       { test: /\.coffee$/, loader: 'coffee-loader' },
-          {
-      test: /\.js?$/,
-      exclude: /(node_modules|bower_components)/,
-      loader: 'babel'
-    }
+      {
+        test: /\.js?$/,
+        exclude: /(node_modules|bower_components)/,
+        loader: 'babel'
+      },
+      {
+        test: /\.jsx$/,
+        loader: 'jsx-loader?insertPragma=React.DOM&harmony'
+      }
     ]
   }
 };

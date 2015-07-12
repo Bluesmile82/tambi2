@@ -22,6 +22,7 @@
           <% end %>
             <li><%= link_to "My Tambis", user_graphs_path(current_user) %></li>
             <li><%= link_to "Feed", users_graphs_path %></li>
+            <li><%= link_to "React", user_react_path( user_id: current_user , id: current_user.graphs.last ) %></li>
             <li class="dropdown">
               <%= link_to "#", {class: "dropdown-toggle", "data-toggle" => "dropdown", "role" => "button", "aria-expanded" => "false"} do %> Settings <span class="caret"></span> <% end %>
               <ul class="dropdown-menu" role="menu">

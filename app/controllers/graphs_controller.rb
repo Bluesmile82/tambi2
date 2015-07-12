@@ -1,5 +1,5 @@
 class GraphsController < ApplicationController
-  before_action :set_graph, only: [:show, :redirect, :update, :destroy, :edit, :update]
+  before_action :set_graph, only: [:show, :redirect, :update, :destroy, :edit, :update, :react]
 
   def index
     @graphs = current_user.graphs
@@ -27,6 +27,10 @@ class GraphsController < ApplicationController
 
   def show
     redirect_to user_graph_ideas_path(graph_id: @graph.id)
+  end
+
+  def react
+    redirect_to user_graph_react_ideas_path(graph_id: @graph.id)
   end
 
   def redirect

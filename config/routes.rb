@@ -10,8 +10,10 @@ Rails.application.routes.draw do
 
     get 'users/graphs' => 'graphs#all'
   resources :users do
+    get 'react/:id' => 'graphs#react', as: 'react'
     resources :graphs do
       resources :ideas
+      get 'react/:id' => 'ideas#react', as: 'react_ideas'
     get 'redirect_to/:idea_id' => 'graphs#redirect'
       resources :links
     end
