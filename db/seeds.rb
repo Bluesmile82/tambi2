@@ -8,12 +8,16 @@
 User.create([{ username: 'Alvaro',
               email:'pursuance@gmail.com',
               password:'chuchuchu',
-              bio:"I am the lead coder of Tambi. Let's think together"
+              bio:"I am the developer of Tambi. Let's think together"
               },
               {username: 'Maria',
               email:'maria@tinymighty.com',
               password:'thinktambi',
               bio:"I am Maria from Tambi. Let's think together"
+              },              {username: 'Jen',
+              email:'jndopazo@gmail.com',
+              password:'thinktambi',
+              bio:"I am Jen from Tambi. Let's think together"
               }
 
               ])
