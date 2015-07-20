@@ -1,11 +1,11 @@
 module.exports = {
     context: __dirname,
     entry: {
-        index:  "./fe/javascripts/index.js"
+        index:  "./frontend/javascripts/index.js"
     },
     output: {
         path: "./app/views/ideas/",
-        filename: "_appBundle.js",
+        filename: "_react.js",
     },
   module: {
     loaders: [

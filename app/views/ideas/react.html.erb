@@ -1,9 +1,12 @@
 <% content_for :js do %>
-  <script type="text/javascript">
-  </script>
 <% end %>
 
+
 <div id="react" data-graph='<%= @graph.id %>' data-permission=<%= @same_user %>>
+
+<script type="text/javascript">
+ <%= render :partial => "react.js" %>
+</script>
 </div>
 
 <!-- <div id="window" data-graph='<%= @graph.id %>' data-permission=<%= @same_user %>>
