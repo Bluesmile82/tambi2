@@ -52,6 +52,70 @@
 
 	  var React = __webpack_require__(1);
 
+	  var MainSvg = React.createClass({
+	    displayName: 'MainSvg',
+
+	    getInitialState: function getInitialState() {
+	      var docEl = document.documentElement,
+	          bodyEl = document.getElementsByTagName('body')[0],
+	          width = window.innerWidth || docEl.clientWidth || bodyEl.clientWidth,
+	          height = window.innerHeight || docEl.clientHeight || bodyEl.clientHeight;
+
+	      return { height: height, width: width };
+	    },
+
+	    componentDidMount: function componentDidMount() {
+	      var width = React.findDOMNode(this).offsetWidth;
+	      console.log(width);
+	    },
+
+	    render: function render() {
+	      var data = [{ id: 'id1', text: 'This is one comment', y: '200', x: '100', concept_type: 'image' }, { id: 'id2', text: 'This is *another* comment', y: '100', x: '100', concept_type: 'concept' }];
+	      return React.createElement(
+	        'svg',
+	        { width: this.state.width, height: this.state.height },
+	        React.createElement(Ideas, { data: data })
+	      );
+	    }
+
+	  });
+
+	  var Ideas = React.createClass({
+	    displayName: 'Ideas',
+
+	    render: function render() {
+	      var ideas = this.props.data.map(function (idea) {
+	        return React.createElement(Idea, { key: idea.id, y: idea.y, x: idea.y, text: idea.text, concept_type: idea.concept_type });
+	      });
+	      return React.createElement(
+	        'g',
+	        { className: 'ideas' },
+	        ideas
+	      );
+	    }
+	  });
+
+	  var Idea = React.createClass({
+	    displayName: 'Idea',
+
+	    handleMouseDown: function handleMouseDown() {
+	      console.log('Idea clicked: ' + this.props.id);
+	    },
+
+	    render: function render() {
+	      // if (this.props.concept_type == concept){
+	      return React.createElement(
+	        'circle',
+	        { cx: this.props.x, cy: this.props.y, r: '20', fill: 'red', onMouseDown: this.handleMouseDown },
+	        React.createElement(
+	          'text',
+	          null,
+	          this.props.concept_type
+	        )
+	      );
+	    }
+	  });
+
 	  var App = React.createClass({
 	    displayName: 'App',
 
@@ -69,7 +133,7 @@
 	      return React.createElement(
 	        'div',
 	        null,
-	        React.createElement(Idea, { log: 'clicked' }),
+	        React.createElement(MainSvg, null),
 	        React.createElement(
 	          'div',
 	          { className: 'clicker', onMouseDown: this.handleMouseDown },
@@ -90,30 +154,9 @@
 	    }
 	  });
 
-	  var Idea = React.createClass({
-	    displayName: 'Idea',
-
-	    // getInitialState: function(){
-	    //   return { count: 0 };
-	    // },
-
-	    handleMouseDown: function handleMouseDown() {
-	      console.log('Idea clicked: ' + this.props.log);
-	      // this.setState({ count: this.state.count + 1});
-	    },
-
-	    render: function render() {
-
-	      return React.createElement(
-	        'div',
-	        { className: 'message', onMouseDown: this.handleMouseDown },
-	        'This is an idea'
-	      );
-	    }
-	  });
-
 	  React.render(React.createElement(App, { message: 'Keep it Simple' }), document.getElementById('react'));
 	}
+	// }
 
 /***/ },
 /* 1 */
