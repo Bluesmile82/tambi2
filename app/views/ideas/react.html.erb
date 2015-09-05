@@ -1,13 +1,4 @@
-<% content_for :js do %>
-<% end %>
-
 
 <div id="react" data-graph='<%= @graph.id %>' data-permission=<%= @same_user %>>
-
-<script type="text/javascript">
- <%= render :partial => "react.js" %>
-</script>
+<%= react_component( 'MainSvg' ) %>
 </div>
-
-<!-- <div id="window" data-graph='<%= @graph.id %>' data-permission=<%= @same_user %>>
-Hola hola</div>

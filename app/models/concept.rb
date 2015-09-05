@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: concepts
+#
+#  id         :integer          not null, primary key
+#  title      :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class Concept < ActiveRecord::Base
   has_many :ideas
   has_many :matches, foreign_key: "concept_a_id", dependent: :destroy
