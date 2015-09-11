@@ -1,4 +1,10 @@
-class Ideas extends React.Component {
+class Tambi extends React.Component {
+
+  constructor(props) {
+    super(props);
+    var svg = d3.select("svg");
+    this.state = { svg }
+  }
 
   render () {
     var ideas = this.props.data.map(function (idea) {
