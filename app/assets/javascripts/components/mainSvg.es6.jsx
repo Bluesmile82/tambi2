@@ -1,25 +1,48 @@
-class MainSvg extends React.Component {
+class Svg extends React.Component {
 
   constructor(props) {
     super(props);
 
     var nodes = [
-      {id: "id0", text: "This is one", y:'100' , x:'100', idea_type:'image' },
-      {id: "id1", text: "Hello you",   y:'200' , x:'200', idea_type:'concept', hierarchy:'h1'},
-      {id: "id2", text: "Hello",       y:'300' , x:'300', idea_type:'concept', hierarchy:'h2'},
-      {id: "id3", text: "Hello im h3", y:'100' , x:'0', idea_type:'concept', hierarchy:'h3'},
+      {
+        id: "id0",
+        text: "This is one" ,
+        x:'100',
+        y:'100',
+        idea_type:'image'
+      },
+
+      {
+        id: "id1",
+        text: "Hello you",
+        x:'200',
+        y:'200' ,
+        idea_type:'concept',
+        hierarchy:'h1'
+      },
+
+      {
+        id: "id2",
+        text: "Hello",
+        y:'450' ,
+        x:'600',
+        idea_type:'concept',
+        hierarchy:'h2'
+      },
+      {id: "id3", text: "Hello im h3", y:'100' , x:'250', idea_type:'concept', hierarchy:'h3'},
       {id: "id4", text: "Hello im h4", y:'500' , x:'500', idea_type:'concept', hierarchy:'h4'},
       {id: "id5", text: "Hello im h5", y:'600' , x:'600', idea_type:'concept', hierarchy:'h5'}
     ];
 
-    var edges = [
-      {"source":1, "target":4},
-      {"source":2,"target":3},
+    var links = [
+      {"id":1, "source":0, "target":1},
+      {"id":1, "source":3, "target":2},
+      {"source":3,"target":5},
     ];
 
     this.state = {
         nodes,
-        edges,
+        links,
         width: '100%',
         height: '100%',
         constants: {
@@ -58,7 +81,7 @@ class MainSvg extends React.Component {
 
   render () {
     return <svg width={this.state.width} height={this.state.height}>
-      <Tambi nodes={ this.state.nodes } width={this.state.width} height={this.state.height} edges={ this.state.edges } permission={ this.state.permission } constants={ this.state.constants } />
+      <Tambi nodes={ this.state.nodes } width={this.state.width} height={this.state.height} links={ this.state.links } permission={ this.state.permission } constants={ this.state.constants } />
     </svg>;
   }
 }

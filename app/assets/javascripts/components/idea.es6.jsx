@@ -4,7 +4,7 @@ class Idea extends React.Component {
     if (this.props.idea_type == 'concept'){
       return (
         <g className='conceptG' id={this.props.id}>
-          <Concept key={this.props.id} y={this.props.y} x={this.props.y} text={this.props.text}  hierarchy={this.props.hierarchy} />
+          <Concept key={this.props.id} x={this.props.x} y={this.props.y}  text={this.props.text}  hierarchy={this.props.hierarchy} />
         </g>
       )
     }
@@ -17,3 +17,4 @@ class Idea extends React.Component {
     }
   }
 }
+

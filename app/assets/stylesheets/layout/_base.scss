@@ -22,6 +22,26 @@
  */
 #react{
 padding-top: 80px;
+ svg{
+  z-index: 0;
+ }
+ .menu{
+    z-index: 10;
+    position:absolute;
+    background-color:white;
+    width: 50px;
+    height: 300px;
+    border: 1px solid lightgrey;
+ }
+  .footer{
+    z-index: 10;
+    position:absolute;
+    bottom: 0;
+    background-color:white;
+    width: 100%;
+    height: 150px;
+    border: 1px solid lightgrey;
+ }
 }
 
 foreignobject{

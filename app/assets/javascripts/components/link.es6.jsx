@@ -1,12 +1,13 @@
 class Link extends React.Component {
 
   render () {
+    var padding = 20
     return (
       <line
-        x1={this.props.datum.source.x}
-        y1={this.props.datum.source.y}
-        x2={this.props.datum.target.x}
-        y2={this.props.datum.target.y}
+        x1={parseInt(this.props.datum.source.x) + padding}
+        y1={parseInt(this.props.datum.source.y) + padding}
+        x2={parseInt(this.props.datum.target.x) }
+        y2={parseInt(this.props.datum.target.y) }
         style={{
           "stroke":"#f99",
           "strokeOpacity":"1",
